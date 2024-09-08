@@ -33,7 +33,6 @@ Future<String?> getDatabaseCipher() async {
     }
     // workaround for if we just wrote to the key and it still doesn't exist
     password = await secureStorage.read(key: _passwordStorageKey);
-    if (password == null) throw MissingPluginException();
   } on MissingPluginException catch (e) {
     const FlutterSecureStorage()
         .delete(key: _passwordStorageKey)
